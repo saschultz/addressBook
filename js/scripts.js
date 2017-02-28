@@ -19,6 +19,14 @@ Address.prototype.fullAddress = function() {
 }
 
 // user interface logic
+function resetFields() {
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input.new-street").val("");
+  $("input.new-city").val("");
+  $("input.new-state").val("");
+}
+
 $(document).ready(function() {
   $("#add-address").click(function() {
    $("#new-addresses").append('<div class="new-address">' +
@@ -54,11 +62,7 @@ $(document).ready(function() {
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+    resetFields();
 
     $(".contact").last().click(function() {
       $("ul#addresses").text("");
